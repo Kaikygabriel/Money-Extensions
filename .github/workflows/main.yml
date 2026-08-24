@@ -11,21 +11,21 @@ jobs:
 
     steps:
       - name: Get Branch Main
-      - uses: Actions/checkout@main
+        uses: Actions/checkout@main
 
       - name: Set up .Net
-      - uses: Actions/setup-dotnet@v6
+        uses: Actions/setup-dotnet@v6
         with:
           dotnet-version: '10.0.x'
       
       - name: Build with dotnet
-      - uses: dotnet build -c Release
+        run: dotnet build -c Release
 
       - name: Test with dotnet
-      - uses: dotnet test
+        run: dotnet test
       
       - name: Create Package
-      - uses: dotnet pack -c Release
+        run: dotnet pack -c Release
       
       - name: Publish Package
-      - uses: dotnet nuget push ./bin/Release/*.nupkg -k ${{ secrets.KEY_NUGET }} -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./bin/Release/*.nupkg -k ${{ secrets.KEY_NUGET }} -s https://api.nuget.org/v3/index.json
