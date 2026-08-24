@@ -25,7 +25,7 @@ jobs:
         run: dotnet test
       
       - name: Create Package
-        run: dotnet pack -c Release
+        run: dotnet pack -c Release -o nuget
       
       - name: Publish Package
-        run: dotnet nuget push ./bin/Release/*.nupkg -k ${{ secrets.KEY_NUGET }} -s https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./nuget/*.nupkg -k ${{ secrets.KEY_NUGET }} -s https://api.nuget.org/v3/index.json
