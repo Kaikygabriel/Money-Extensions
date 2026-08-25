@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Get Branch Main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up .Net
         uses: actions/setup-dotnet@v6
@@ -27,5 +27,5 @@ jobs:
       - name: Create Package
         run: dotnet pack -c Release -o nuget
       
-      - name: Publish Package
+      - name: Publish Package 
         run: dotnet nuget push ./nuget/*.nupkg -k ${{ secrets.KEY_NUGET }} -s https://api.nuget.org/v3/index.json

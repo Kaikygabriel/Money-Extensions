@@ -1,6 +1,6 @@
 namespace MoneyExtensions;
 
-public static class MoneyExtensions
+public static class Extensions
 {
     public static string ToMoney(this decimal value)
         => value.ToString("C");
@@ -8,7 +8,6 @@ public static class MoneyExtensions
             => value.ToString("C");
     public static string ToMoney(this float value)
             => value.ToString("C");
-    
     public static string ToMoney(this byte value)
         => value.ToString("C");
     public static string ToMoney(this sbyte value)
